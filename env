@@ -1,0 +1,7 @@
+PORT=8000
+ENV=DEV
+//DB connection string For IPv6
+# DATABASE=postgresql://postgres:Theriyadhu%23143@db.lujkxdmsywrzwcjfqahj.supabase.co:5432/postgres
+
+//DB connection string For IPv4
+DATABASE=postgresql://postgres.lujkxdmsywrzwcjfqahj:Theriyadhu%23143@aws-0-ap-south-1.pooler.supabase.com:5432/postgres
