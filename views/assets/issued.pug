@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Issue Asset
+    link(rel='stylesheet', href='/styles/style.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  body
+   a.btn.btn-secondary.d-inline-flex.align-items-center.gap-2(href='/')
+      i.fas.fa-arrow-left
+         |       Back to Home
+  div.Flex-center
+   div.Form-Background
+    h1 Issue Asset
+    form(action='/assets/issue' method='POST')
+      div.form-group
+        label(for='assetId') Asset
+        select(name='assetId' required)
+          each asset in availableAssets
+            option(value=asset.id) #{asset.assetName} - #{asset.serialNumber}
+      
+      div.form-group
+        label(for='employeeId') Employee
+        select(name='employeeId' required)
+          each employee in employees
+            option(value=employee.id) #{employee.name}
+      div.form-group
+       button(type='submit') Issue Asset
