@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Asset History Viewer
+    link(rel='stylesheet', href='/styles/style.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  body
+    .container
+  a.btn.btn-secondary.d-inline-flex.align-items-center.gap-2(href='/')
+      i.fas.fa-arrow-left
+         |       Back to Home 
+  
+  div.Flex-center
+   div.Form-Background
+      h1 View Asset History
+      form(action='/assetHistory/view' method='POST')
+        .form-group
+          label(for='assetId') Select Asset
+          select(name='assetId' required)
+            each asset in assets
+              option(value=asset.id)= `${asset.assetName} (${asset.serialNumber})`
+
+        button(type='submit' class='btn btn-primary') View History
+

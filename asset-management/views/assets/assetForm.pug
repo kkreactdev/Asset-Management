@@ -1,0 +1,50 @@
+doctype html
+html
+ head
+    title Add New Asset
+    link(rel='stylesheet', href='/styles/style.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ body
+  a.btn.btn-secondary.d-inline-flex.align-items-center.gap-2(href='/assets')
+      i.fas.fa-arrow-left
+         |       Back to Assets
+  div.Flex-center
+   div.Form-Background
+    h1 Add New Asset
+    form(action='/assets/add' method='POST')
+      div.form-group
+        label(for='assetName') Asset Name
+        input(type='text' name='assetName' required)
+      div.form-group
+        label(for='serialNumber') Serial Number
+        input(type='text' name='serialNumber' required)
+      div.form-group
+        label(for='purchaseDate') Purchase Date
+        input(type='date' name='purchaseDate' required)
+      div.form-group
+        label(for='purchasePrice') Purchase Price
+        input(type='number' name='purchasePrice' required)
+      div.form-group
+        label(for='branch') Branch
+        input(type='text' name='branch' required)
+      //- div.form-group
+      //-   label(for='status') Status
+      //-   select(name='status')
+      //-     option(value='Available') Available
+      //-     option(value='Issued') Issued
+      //-     option(value='Returned') Returned
+      //-     option(value='Scrapped') Scrapped
+      div.form-group
+        label(for='condition') Asset Condition
+        select(name='condition')
+          option(value='New') New
+          option(value='Used') Used
+          option(value='Damaged') Damaged
+      div.form-group
+        label(for='categoryId') Category
+        select(name='categoryId' required)
+          each category in categories
+            option(value=category.id) #{category.name}
+      div.form-group
+              button(type='submit') Add Asset
+    
